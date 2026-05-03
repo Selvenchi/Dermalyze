@@ -87,7 +87,10 @@ function ScanPage() {
                   setIsLoading(true);
                   const response = await axios.post(
                     "http://localhost:8000/generate",
-                    { imageInput: image },
+                    {
+                      imageInput: image,
+                      password: prompt("Enter Password"),
+                    },
                   );
 
                   navigate("/analysis", {
@@ -103,7 +106,7 @@ function ScanPage() {
                 }
               }}
               className={`disabled:opacity-30 flex items-center justify-center gap-2 mt-8 bg-red-600 text-white py-3 rounded-full hover:scale-105 transition cursor-pointer ${isLoading && "pointer-events-none"}`}
-              disabled={isLoading}
+              disabled={isLoading || isConvertingImagetoBase64}
             >
               {isLoading && <LoadingSpinner />}
               <p>Start Now</p>

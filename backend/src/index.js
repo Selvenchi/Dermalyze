@@ -16,7 +16,11 @@ app.get("/", (req, res) => {
 
 app.post("/generate", async (request, response) => {
   try {
-    const { imageInput } = request.body;
+    const { imageInput, password } = request.body;
+
+    if (process.env.password !== password) {
+      return response.status(400).json({ error: "Not allowed" });
+    }
 
     if (!imageInput) {
       return response.status(400).json({ error: "No image provided" });
@@ -45,7 +49,7 @@ app.post("/generate", async (request, response) => {
       ],
     });
 
-    const raw = modelResponse.text();
+    const raw = modelResponse.text;
     // const raw = `
     // {
     //   "skinType": "Combination",
