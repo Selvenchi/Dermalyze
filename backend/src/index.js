@@ -18,8 +18,8 @@ app.post("/generate", async (request, response) => {
   try {
     const { imageInput, password } = request.body;
 
-    if (process.env.password !== password) {
-      return response.status(400).json({ error: "Not allowed" });
+    if (process.env.PASSWORD !== password) {
+      return response.status(401).json({ error: "Not allowed" });
     }
 
     if (!imageInput) {
