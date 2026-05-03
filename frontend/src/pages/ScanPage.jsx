@@ -86,7 +86,7 @@ function ScanPage() {
                 try {
                   setIsLoading(true);
                   const response = await axios.post(
-                    "http://localhost:8000/generate",
+                    `${import.meta.env.VITE_API_URL}/generate`,
                     {
                       imageInput: image,
                       password: prompt("Enter Password"),

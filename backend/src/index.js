@@ -86,6 +86,4 @@ app.post("/generate", async (request, response) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`SERVER IS RUNNING ON PORT ${PORT}`);
-});
+export default app;
