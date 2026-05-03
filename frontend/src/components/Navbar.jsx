@@ -97,11 +97,24 @@ function Navbar() {
           </NavItem>
 
           <div className="flex items-center gap-4 mt-2">
-            <button className="w-12 h-10 flex items-center justify-center bg-gray-100 rounded-full shadow-md">
+            <button
+              onClick={() => {
+                navigate("/login");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              className="w-12 h-10 flex items-center justify-center bg-gray-100 rounded-full shadow-md"
+            >
               <img src={User} className="w-5 h-5" />
             </button>
 
-            <Button icon={Sparkle} className="w-full">
+            <Button
+              onClick={() => {
+                navigate("/scanpage");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              icon={Sparkle}
+              className="w-full"
+            >
               Start Analysis
             </Button>
           </div>
